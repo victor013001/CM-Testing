@@ -1,5 +1,7 @@
 package co.edu.udea.compumovil.gr03_20232.lab1
 
+import androidx.activity.ComponentActivity
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -7,21 +9,37 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
+import androidx.navigation.NavController
+import androidx.navigation.compose.ComposeNavigator
+import androidx.navigation.testing.TestNavHostController
+import org.junit.Assert
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class MainActivityComposeTest {
 
     @get:Rule
-    val mainActivityComposeTestRule = createAndroidComposeRule<MainActivity>()
+    val mainActivityComposeTestRule = createAndroidComposeRule<ComponentActivity>()
+
+    private lateinit var navController: TestNavHostController
+
+    @Before
+    fun setupMoodTrackerAppNavHost() {
+        mainActivityComposeTestRule.setContent {
+            navController = TestNavHostController(LocalContext.current)
+            navController.navigatorProvider.addNavigator(ComposeNavigator())
+            Labs20232Gr03App(navController = navController)
+        }
+    }
+
+    fun NavController.assertCurrentRouteName(expectedRouteName: String) {
+        Assert.assertEquals(expectedRouteName, currentBackStackEntry?.destination?.route)
+    }
 
     @Test
     fun fillFormTest() {
 
-        val personaDataText = mainActivityComposeTestRule.activity
-            .getString(
-                R.string.personal_data_form_title
-            )
         val nameText = mainActivityComposeTestRule.activity
             .getString(
                 R.string.name_text_field_hint
@@ -46,10 +64,6 @@ class MainActivityComposeTest {
             .getString(
                 R.string.next
             )
-        val contactDataText = mainActivityComposeTestRule.activity
-            .getString(
-                R.string.contact_data_form_title
-            )
         val phoneText = mainActivityComposeTestRule.activity
             .getString(
                 R.string.phone_text_field_hint
@@ -61,10 +75,6 @@ class MainActivityComposeTest {
         val addressText = mainActivityComposeTestRule.activity
             .getString(
                 R.string.address_text_field_hint
-            )
-        val resultText = mainActivityComposeTestRule.activity
-            .getString(
-                R.string.title_result_data
             )
 
         val nextButtonNode = hasText(nextText) and hasClickAction()
@@ -78,9 +88,11 @@ class MainActivityComposeTest {
         val inputColombia = "Colombia"
         val inputAddressSara = "Calle 123"
 
+        navController.assertCurrentRouteName(Labs20232Gr03Screen.PersonalData.name)
         mainActivityComposeTestRule
-            .onNodeWithText(personaDataText)
-            .assertExists()
+            .onNode(nextButtonNode)
+            .performClick()
+        navController.assertCurrentRouteName(Labs20232Gr03Screen.PersonalData.name)
 
         mainActivityComposeTestRule
             .onNodeWithText(nameText)
@@ -106,9 +118,7 @@ class MainActivityComposeTest {
             .onNode(nextButtonNode)
             .performClick()
 
-        mainActivityComposeTestRule
-            .onNodeWithText(contactDataText)
-            .assertExists()
+        navController.assertCurrentRouteName(Labs20232Gr03Screen.ContactData.name)
 
         mainActivityComposeTestRule
             .onNodeWithText(phoneText)
@@ -127,12 +137,10 @@ class MainActivityComposeTest {
             .performTextInput(inputAddressSara)
 
         mainActivityComposeTestRule
-            .onNodeWithText(resultText)
-            .assertExists()
-
-        mainActivityComposeTestRule
             .onNode(nextButtonNode)
             .performClick()
+
+        navController.assertCurrentRouteName(Labs20232Gr03Screen.ResultData.name)
 
         mainActivityComposeTestRule
             .onNodeWithText(inputNameSara)
