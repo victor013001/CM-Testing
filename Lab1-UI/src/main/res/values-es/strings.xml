@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Labs20232-Gr03</string>
+    <string name="title_activity_personal_data">ActividadDatosPersonales</string>
+    <string name="title_activity_contact_data">ActividadDatosContacto</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="name_text_field_hint">Nombre</string>
+    <string name="phone_text_field_hint">Teléfono</string>
+    <string name="email_text_field_hint">Correo electrónico</string>
+    <string name="address_text_field_hint">Dirección</string>
+    <string name="surname_text_field_hint">Apellido</string>
+    <string name="sex_title_radiobutton">Sexo: </string>
+    <string name="male_sex">Masculino</string>
+    <string name="female_sex">Femenino</string>
+    <string name="other">Otro</string>
+    <string name="birth_date_title">Fecha de nacimiento: </string>
+    <string name="select">Seleccionar</string>
+    <string name="school_grade_title">Grado escolar: </string>
+    <string name="school_grade_primary">Primario</string>
+    <string name="school_grade_secondary">Secundario</string>
+    <string name="school_grade_university">Universidad</string>
+    <string name="invalid_name_toast_message">El nombre es obligatorio y no puede contener números</string>
+    <string name="invalid_surname_toast_message">El apellido es obligatorio y no puede contener números</string>
+    <string name="invalid_birthdate_toast_message">La fecha de nacimiento es obligatoria y no puede ser una fecha futura</string>
+    <string name="personal_data_form_title">Información personal</string>
+    <string name="contact_data_form_title">Información de contacto</string>
+    <string name="phone_invalid">El número de teléfono es obligatorio</string>
+    <string name="email_invalid">El correo electrónico es obligatorio y debe ser un correo electrónico válido</string>
+    <string name="country_invalid">El país es obligatorio y debe ser uno de la lista</string>
+    <string name="contact_data_form_finished_toast_message">Logcats listos</string>
+    <string name="country_text_field_hint">País</string>
+    <string name="city_text_field_hint">Ciudad</string>
+    <string name="city_invalid">La ciudad debe ser una de la lista del país</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
+    <string name="title_activity_main">Labs20232Gr03</string>
+    <string name="title_result_data">RESULTADO DE DATOS</string>
+</resources>

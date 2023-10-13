@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Labs20232-Gr03</string>
+    <string name="title_activity_personal_data">PersonalDataActivity</string>
+    <string name="title_activity_contact_data">ContactDataActivity</string>
+    <string name="full_name">Full Name</string>
+    <string name="name_text_field_hint">Name</string>
+    <string name="phone_text_field_hint">Phone</string>
+    <string name="email_text_field_hint">Email</string>
+    <string name="address_text_field_hint">Address</string>
+    <string name="surname_text_field_hint">Surname</string>
+    <string name="sex_title_radiobutton">Sex: </string>
+    <string name="male_sex">Male</string>
+    <string name="female_sex">Female</string>
+    <string name="other">Other</string>
+    <string name="birth_date_title">Birthdate: </string>
+    <string name="select">Select</string>
+    <string name="school_grade_title">School grade: </string>
+    <string name="school_grade_primary">Primary</string>
+    <string name="school_grade_secondary">Secondary</string>
+    <string name="school_grade_university">University</string>
+    <string name="invalid_name_toast_message">Name is mandatory and can not have numbers</string>
+    <string name="invalid_surname_toast_message">Surname is mandatory and can not have numbers</string>
+    <string name="invalid_birthdate_toast_message">Birthdate is mandatory and can not be a date on the future</string>
+    <string name="personal_data_form_title">PERSONAL INFORMATION</string>
+    <string name="contact_data_form_title">CONTACT INFORMATION</string>
+    <string name="phone_invalid">Phone number is mandatory</string>
+    <string name="email_invalid">Email is mandatory and must be a valid email</string>
+    <string name="country_invalid">Country is mandatory and must be one of the list</string>
+    <string name="contact_data_form_finished_toast_message">Logcats ready</string>
+    <string name="country_text_field_hint">Country</string>
+    <string name="city_text_field_hint">City</string>
+    <string name="city_invalid">City must be one of the country list</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_main">Labs20232Gr03</string>
+    <string name="title_result_data">RESULT DATA</string>
+</resources>
